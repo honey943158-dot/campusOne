@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in | CampusOne</title>
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzBCMUY0QiIvPjxwYXRoIGQ9Ik0xNiA3IDQgMTNsMTIgNiA5LTQuNVYyMWgydi04eiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik05IDE3djRjMCAyIDMuMSA0IDcgNHM3LTIgNy00di00bC03IDMuNXoiIGZpbGw9IiM2MEE1RkEiLz48L3N2Zz4=">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0B1F4B;--royal:#1D4ED8;--royal-d:#1E40AF;--sky:#EAF1FF;--line:#E3E8F2;--text:#0F1B33;--muted:#5B6784;--red:#B42318;--green:#067647}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Inter',system-ui,sans-serif;color:var(--text);background:#F5F8FF;-webkit-font-smoothing:antialiased;font-size:15px}
+.wrap{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+.hero{background:var(--royal);color:#fff;padding:48px;display:flex;flex-direction:column;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1.25rem;color:#fff;text-decoration:none}
+.brand img{width:34px;height:34px;border-radius:8px}
+.hero h1{font-size:2.2rem;line-height:1.15;letter-spacing:-.02em;margin:0 0 12px;max-width:420px}
+.hero p{color:#DCE7FF;max-width:420px;margin:0;line-height:1.55}
+.hero small{color:#BFD0F5}
+.panel{display:grid;place-items:center;padding:28px}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;width:100%;max-width:420px;box-shadow:0 1px 2px rgba(11,31,75,.06),0 12px 32px rgba(11,31,75,.07)}
+.tabs{display:grid;grid-template-columns:1fr 1fr;background:#F1F5FD;border-radius:10px;padding:4px;margin-bottom:22px}
+.tabs button{border:0;background:none;padding:9px;border-radius:8px;font:inherit;font-weight:600;color:var(--muted);cursor:pointer}
+.tabs button.on{background:#fff;color:var(--royal);box-shadow:0 1px 3px rgba(11,31,75,.12)}
+h2{margin:0 0 4px;color:var(--navy);font-size:1.35rem;letter-spacing:-.01em}
+.sub{color:var(--muted);margin:0 0 18px;font-size:.9rem}
+.field{display:block;margin-bottom:14px}.field>span{display:block;font-weight:600;font-size:.84rem;margin-bottom:5px}
+input{font:inherit;width:100%;border:1px solid var(--line);border-radius:10px;padding:11px 12px;color:var(--text)}
+input:focus{outline:2px solid var(--royal);outline-offset:-1px;border-color:var(--royal)}
+input.bad{border-color:var(--red)}
+.pw{position:relative}.pw input{padding-right:64px}
+.pw button{position:absolute;right:6px;top:50%;transform:translateY(-50%);border:0;background:none;color:var(--royal);font:inherit;font-weight:600;font-size:.82rem;cursor:pointer;padding:6px 8px}
+.err{display:block;color:var(--red);font-size:.78rem;margin-top:3px}
+.btn{width:100%;border:0;border-radius:10px;background:var(--royal);color:#fff;font:inherit;font-weight:600;padding:12px;cursor:pointer;transition:background .15s}
+.btn:hover{background:var(--royal-d)}.btn:disabled{opacity:.6;cursor:wait}
+.link{background:none;border:0;color:var(--royal);font:inherit;font-weight:600;font-size:.85rem;cursor:pointer;padding:0}
+.row{display:flex;justify-content:flex-end;margin:-4px 0 14px}
+.msg{margin:14px 0 0;padding:10px 12px;border-radius:10px;font-size:.88rem;display:none}
+.msg.error{display:block;background:#FEE4E2;color:var(--red)}.msg.ok{display:block;background:#DCFAE6;color:var(--green)}
+.back{display:block;text-align:center;margin-top:18px;color:var(--muted);font-size:.85rem;text-decoration:none}.back:hover{color:var(--royal)}
+[hidden]{display:none!important}
+:focus-visible{outline:2px solid var(--royal);outline-offset:2px}
+@media (max-width:820px){.wrap{grid-template-columns:1fr}.hero{padding:24px;gap:18px}.hero h1{font-size:1.5rem}.hero small{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="hero">
+    <a class="brand" href="index.html"><img alt="" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzBCMUY0QiIvPjxwYXRoIGQ9Ik0xNiA3IDQgMTNsMTIgNiA5LTQuNVYyMWgydi04eiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik05IDE3djRjMCAyIDMuMSA0IDcgNHM3LTIgNy00di00bC03IDMuNXoiIGZpbGw9IiM2MEE1RkEiLz48L3N2Zz4=">CampusOne</a>
+    <div><h1>Your campus, in one place.</h1><p>Notices, timetable, study material and events for Lamrin Tech Skills University.</p></div>
+    <small>Lamrin Tech Skills University, Punjab</small>
+  </section>
+  <main class="panel">
+    <div class="card">
+      <div class="tabs" role="tablist"><button id="tabIn" class="on" role="tab" type="button">Sign in</button><button id="tabUp" role="tab" type="button">Create account</button></div>
+
+      <form id="fIn" novalidate>
+        <h2>Welcome back</h2><p class="sub">Sign in to continue to CampusOne.</p>
+        <label class="field"><span>Email</span><input id="inEmail" type="email" autocomplete="email" placeholder="you@example.com"><small class="err"></small></label>
+        <label class="field"><span>Password</span><div class="pw"><input id="inPass" type="password" autocomplete="current-password" placeholder="Your password"><button type="button" data-show="inPass">Show</button></div><small class="err"></small></label>
+        <div class="row"><button type="button" class="link" id="forgot">Forgot password?</button></div>
+        <button class="btn" id="btnIn">Sign in</button>
+      </form>
+
+      <form id="fUp" novalidate hidden>
+        <h2>Create your account</h2><p class="sub">New accounts start with student access.</p>
+        <label class="field"><span>Full name</span><input id="upName" autocomplete="name" placeholder="Your full name"><small class="err"></small></label>
+        <label class="field"><span>Email</span><input id="upEmail" type="email" autocomplete="email" placeholder="you@example.com"><small class="err"></small></label>
+        <label class="field"><span>Password</span><div class="pw"><input id="upPass" type="password" autocomplete="new-password" placeholder="At least 6 characters"><button type="button" data-show="upPass">Show</button></div><small class="err"></small></label>
+        <label class="field"><span>Confirm password</span><input id="upPass2" type="password" autocomplete="new-password" placeholder="Re-enter password"><small class="err"></small></label>
+        <button class="btn" id="btnUp">Create account</button>
+      </form>
+
+      <div class="msg" id="msg" role="alert"></div>
+      <a class="back" href="index.html">Back to CampusOne</a>
+    </div>
+  </main>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword, createUserWithEmailAndPassword, updateProfile, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCPfs9IZZ461GWHlH2MpN895QGe0p3hrcM",
+  authDomain: "campusone-b3cba.firebaseapp.com",
+  projectId: "campusone-b3cba",
+  storageBucket: "campusone-b3cba.firebasestorage.app",
+  messagingSenderId: "769763549194",
+  appId: "1:769763549194:web:2dba1a4e7a7d938eabbff3",
+  measurementId: "G-LJNE7RC9ME"
+};
+const app = initializeApp(firebaseConfig), auth = getAuth(app), db = getFirestore(app);
+const $ = id => document.getElementById(id);
+let busy = false;
+
+const ERR = {
+  'auth/invalid-credential': 'Email or password is incorrect.', 'auth/wrong-password': 'Email or password is incorrect.', 'auth/user-not-found': 'No account found for this email.',
+  'auth/invalid-email': 'Enter a valid email address.', 'auth/email-already-in-use': 'An account with this email already exists. Try signing in.',
+  'auth/weak-password': 'Choose a password with at least 6 characters.', 'auth/too-many-requests': 'Too many attempts. Wait a few minutes and try again.',
+  'auth/network-request-failed': 'Network problem. Check your internet and try again.', 'auth/operation-not-allowed': 'Email sign-in is not enabled in Firebase yet.',
+  'auth/unauthorized-domain': 'This website address is not authorised in Firebase yet.'
+};
+const say = (t, type) => { const m = $('msg'); m.textContent = t; m.className = 'msg ' + (type || ''); };
+const bad = (input, text) => { input.classList.toggle('bad', !!text); input.closest('.field').querySelector('.err').textContent = text || ''; return !text; };
+const emailOk = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+const go = () => { location.href = 'index.html'; };
+
+function tab(up) {
+  $('fIn').hidden = up; $('fUp').hidden = !up; say('');
+  $('tabIn').classList.toggle('on', !up); $('tabUp').classList.toggle('on', up);
+}
+$('tabIn').onclick = () => tab(false); $('tabUp').onclick = () => tab(true);
+document.querySelectorAll('[data-show]').forEach(b => b.onclick = () => {
+  const i = $(b.dataset.show), s = i.type === 'password'; i.type = s ? 'text' : 'password'; b.textContent = s ? 'Hide' : 'Show';
+});
+
+$('fIn').onsubmit = async e => {
+  e.preventDefault(); say('');
+  const em = $('inEmail').value.trim(), pw = $('inPass').value;
+  const ok = [bad($('inEmail'), !em ? 'Enter your email.' : !emailOk(em) ? 'Enter a valid email address.' : ''), bad($('inPass'), pw ? '' : 'Enter your password.')].every(Boolean);
+  if (!ok) return;
+  busy = true; $('btnIn').disabled = true; $('btnIn').textContent = 'Signing in...';
+  try { await signInWithEmailAndPassword(auth, em, pw); go(); }
+  catch (er) { say(ERR[er.code] || 'Could not sign in. Please try again.', 'error'); busy = false; $('btnIn').disabled = false; $('btnIn').textContent = 'Sign in'; }
+};
+
+$('fUp').onsubmit = async e => {
+  e.preventDefault(); say('');
+  const nm = $('upName').value.trim(), em = $('upEmail').value.trim(), pw = $('upPass').value, p2 = $('upPass2').value;
+  const ok = [bad($('upName'), nm.length < 3 ? 'Enter your full name (3+ characters).' : ''),
+    bad($('upEmail'), !em ? 'Enter your email.' : !emailOk(em) ? 'Enter a valid email address.' : ''),
+    bad($('upPass'), pw.length < 6 ? 'Use at least 6 characters.' : ''),
+    bad($('upPass2'), p2 !== pw ? 'Passwords do not match.' : '')].every(Boolean);
+  if (!ok) return;
+  busy = true; $('btnUp').disabled = true; $('btnUp').textContent = 'Creating account...';
+  try {
+    const cred = await createUserWithEmailAndPassword(auth, em, pw);
+    await updateProfile(cred.user, { displayName: nm });
+    try { await setDoc(doc(db, 'users', cred.user.uid), { name: nm, email: em, role: 'Student', createdAt: serverTimestamp() }); } catch (x) { /* Firestore not set up yet: the account still works */ }
+    go();
+  } catch (er) { say(ERR[er.code] || 'Could not create the account. Please try again.', 'error'); busy = false; $('btnUp').disabled = false; $('btnUp').textContent = 'Create account'; }
+};
+
+$('forgot').onclick = async () => {
+  const em = $('inEmail').value.trim();
+  if (!bad($('inEmail'), !em ? 'Enter your email first.' : !emailOk(em) ? 'Enter a valid email address.' : '')) return;
+  try { await sendPasswordResetEmail(auth, em); say('Password reset link sent. Check your inbox and spam folder.', 'ok'); }
+  catch (er) { say(ERR[er.code] || 'Could not send the reset link. Please try again.', 'error'); }
+};
+
+onAuthStateChanged(auth, u => { if (u && !busy) go(); });
+</script>
+</body>
+</html>
